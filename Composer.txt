@@ -1,0 +1,58 @@
+# 安装
+
+你只需要下载 composer.phar 可执行文件。
+
+curl -sS https://getcomposer.org/installer | php
+
+# 局部安装
+
+上述下载 Composer 的过程正确执行完毕后，可以将 composer.phar 文件复制到任意目录（比如项目根目录下），
+然后通过 php composer.phar 指令即可使用 Composer 了！
+
+# 全局安装
+
+将 Composer 安装到系统环境变量 PATH 所包含的路径下面，然后就能够在命令行窗口中直接执行 composer 命令了。
+
+Mac 或 Linux 系统：打开命令行窗口并执行如下命令将前面下载的 composer.phar 文件移动到 /usr/local/bin/ 目录下面：
+
+sudo mv composer.phar /usr/local/bin/composer
+
+# 使用镜像
+
+可以使用镜像http://pkg.phpcomposer.com/，有两种方式启用该镜像服务：
+
+系统全局配置： 即将配置信息添加到 Composer 的全局配置文件 config.json 中。见“例1”
+单个项目配置： 将配置信息添加到某个项目的 composer.json 文件中。见“例2”
+
+例1：修改 composer 的全局配置文件（推荐方式）
+
+打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令：
+
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+例2：修改当前项目的 composer.json 配置文件：
+
+打开命令行窗口（windows用户）或控制台（Linux、Mac 用户），进入你的项目的根目录（也就是 composer.json 文件所在目录），执行如下命令：
+
+composer config repo.packagist composer https://packagist.phpcomposer.com
+
+上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息（你也可以自己手工添加）：
+
+"repositories": {
+    "packagist": {
+        "type": "composer",
+        "url": "https://packagist.phpcomposer.com"
+    }
+}
+
+# 命令
+
+composer self-update 命令更新 Composer 为最新版本。
+
+composer install
+
+composer update
+
+# 中文文档
+
+http://www.kancloud.cn/thinkphp/composer/35668
